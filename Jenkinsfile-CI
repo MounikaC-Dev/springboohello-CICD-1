@@ -14,6 +14,19 @@ pipeline{
                 sh 'mvn clean package'
             }
         }
+        stage("Docker Image"){
+            steps{
+                sh "docker build -t naresh240/springboohello:v1 ."
+            }
+        }
+        stage("Docker Push"){
+            steps{
+                withCredentials([usernamePassword(credentialsId: 'docker_credentials', passwordVariable: 'password', usernameVariable: 'username')]) {
+                    sh "docker login -u ${username} -p ${password}"
+                }
+                sh "docker push naresh240/springboohello:v1"
+            }
+        }
     }
     post {
         success {
