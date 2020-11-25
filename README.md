@@ -37,6 +37,8 @@
 
 # Create docker credentials
   Goto Manage Jenkins -->  Manage Credentials
+  
+  ![image](https://user-images.githubusercontent.com/58024415/100224041-4b251300-2f42-11eb-82bd-f07e7fbb3aca.png)
 # Build Pipeline job and keep Jenkins pipeline data and click on build
   ![image](https://user-images.githubusercontent.com/58024415/100222656-6abb3c00-2f40-11eb-915e-d54b2c80c3b7.png)
 # Check Mail will get mail as shown below:
