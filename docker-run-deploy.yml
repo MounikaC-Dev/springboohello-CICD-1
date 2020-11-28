@@ -8,10 +8,6 @@
   - name: Install docker
     pip:
       name: docker
-  - name: Start docker service
-    service:
-      name: docker
-      state: started
   - name: deploy applicaiton as docker container
     docker_container:
       name: springbootapplication
@@ -19,3 +15,10 @@
       state: started
       ports:
        - "8080:8080"
+    tags: create
+  - name: stop container
+    docker_container:
+      name: springbootapplication
+      image: naresh240/springboohello:{{ ImageTag }}
+      state: absent
+    tags: remove
