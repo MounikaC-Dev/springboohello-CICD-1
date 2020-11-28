@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    parameters {
+        string(name: 'ImagTag', description: "Docker Image Tag")
+    }    
     tools { 
         maven 'maven3' 
     }
@@ -16,7 +19,7 @@ pipeline{
         }
         stage("Docker Image"){
             steps{
-                sh "docker build -t naresh240/springboohello:v1 ."
+                sh "docker build -t naresh240/springboohello:${ImagTag} ."
             }
         }
         stage("Docker Push"){
@@ -24,7 +27,7 @@ pipeline{
                 withCredentials([usernamePassword(credentialsId: 'docker_credentials', passwordVariable: 'password', usernameVariable: 'username')]) {
                     sh "docker login -u ${username} -p ${password}"
                 }
-                sh "docker push naresh240/springboohello:v1"
+                sh "docker push naresh240/springboohello:${ImagTag}"
             }
         }
     }
