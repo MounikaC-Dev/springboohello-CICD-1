@@ -1,22 +1,20 @@
 pipeline {
-    agent {
-        label "master"
-    }
+    agent any
     tools {
-        maven "maven"
+        maven "maven3"
     }
     environment {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "107.22.145.173:8081"
+        NEXUS_URL = "18.206.74.244:8081"
         NEXUS_REPOSITORY = "maven-releases"
-        NEXUS_CREDENTIAL_ID = "nexus-user-credentials"
+        NEXUS_CREDENTIAL_ID = "nexus-credentials"
     }
     stages {
         stage("SCM") {
             steps {
                 script {
-                    git 'https://github.com/Naresh240/spring-boot-hello.git';
+                    git 'https://github.com/Naresh240/springboohello-CICD.git';
                 }
             }
         }
@@ -29,7 +27,7 @@ pipeline {
         }
         stage("Publish to Nexus Repository Manager") {
             steps {
-                script {
+                script{
                     pom = readMavenPom file: "pom.xml";
                     filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
                     echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
