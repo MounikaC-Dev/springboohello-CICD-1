@@ -1,6 +1,5 @@
 # Pre-Requisites
-    Ansible Setup 
-      Install Jenkins in Master
+    Ansible Setup (Install Jenkins in Master)
 # Step1:
   Provide sudo permission for jenkins at below path
   vi /etc/sudoers
