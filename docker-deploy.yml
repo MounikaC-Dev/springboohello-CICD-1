@@ -1,21 +1,18 @@
 ---
 - hosts: dockerinstance
   remote_user: root
-  vars:
-    ansible_python_interpreter=/usr/bin/python
   tasks:  
   - name: Install pip
     yum:
       name: python-pip
       state: present
   - name: Install docker
-    yum:
-      name: docker
-      state: latest
-  - name: Ensure docker deamon is running
-    service:
-      name: docker
-      state: started
+    pip:
+#       name: docker
+#   - name: Ensure docker deamon is running
+#     service:
+#       name: docker
+#       state: started
   - name: deploy applicaiton as docker container
     docker_container:
       name: springbootapplication
