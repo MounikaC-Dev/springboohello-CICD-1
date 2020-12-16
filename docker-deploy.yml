@@ -1,16 +1,17 @@
 ---
 - hosts: dockerinstance
-  remote_user: root
+  remote_user: jenkins
   become: yes
   become_method: sudo
   tasks:
   - name: install docker
     yum: 
       name: docker
-  - name: copying file to remote
-    copy:
-      src: ./docker
-      dest: /root/docker
+      state: present
+  - name: start docker service
+    service:
+      name: docker
+      state: started
   - name: deploy applicaiton as docker container
     docker_container:
       name: springbootapplication
