@@ -7,9 +7,8 @@
       name: python-pip
       state: present
   - name: Install docker
-    yum:
+    pip:
       name: docker
-      state: present
 #   - name: Ensure docker deamon is running
 #     service:
 #       name: docker
