@@ -3,7 +3,7 @@
   remote_user: root
   tasks:
   - set_fact:
-      ansible_python_interpreter=/usr/bin/python2.7
+      ansible_python_interpreter=/usr/bin/python
   - name: Install pip
     yum:
       name: python-pip
