@@ -3,14 +3,13 @@
   remote_user: root
   tasks:
   - name: Install pip
-    shell: python --version
-#     yum:
-#       name: python-pip
-#       state: present
-#   - name: Install docker
-#     yum:
-#       name: docker-py
-#       state: present
+    yum:
+      name: python-pip
+      state: present
+  - name: Install docker
+    yum:
+      name: docker-py
+      state: present
 #   - name: Ensure docker deamon is running
 #     service:
 #       name: docker
