@@ -20,7 +20,7 @@
       image: naresh240/hellospringboot:{{ ImageTag }}
       state: started
       ports:
-       - "8888:8888"
+       - "8888:8080"
     tags: create
   - name: stop container
     docker_container:
