@@ -3,29 +3,30 @@
   remote_user: root
   tasks:
   - name: Install pip
-    yum:
-      name: python-pip
-      state: present
-  - name: Install docker
-    yum:
-      name: docker-py
-      state: present
-  - name: Ensure docker deamon is running
-    service:
-      name: docker
-      state: started
-    become: true
-  - name: deploy applicaiton as docker container
-    docker_container:
-      name: springbootapplication
-      image: naresh240/hellospringboot:{{ ImageTag }}
-      state: started
-      ports:
-       - "8888:8080"
-    tags: create
-  - name: stop container
-    docker_container:
-      name: springbootapplication
-      image: naresh240/hellospringboot:{{ ImageTag }}
-      state: absent
-    tags: remove
+    shell: python --version
+#     yum:
+#       name: python-pip
+#       state: present
+#   - name: Install docker
+#     yum:
+#       name: docker-py
+#       state: present
+#   - name: Ensure docker deamon is running
+#     service:
+#       name: docker
+#       state: started
+#     become: true
+#   - name: deploy applicaiton as docker container
+#     docker_container:
+#       name: springbootapplication
+#       image: naresh240/hellospringboot:{{ ImageTag }}
+#       state: started
+#       ports:
+#        - "8888:8080"
+#     tags: create
+#   - name: stop container
+#     docker_container:
+#       name: springbootapplication
+#       image: naresh240/hellospringboot:{{ ImageTag }}
+#       state: absent
+#     tags: remove
