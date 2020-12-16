@@ -1,0 +1,27 @@
+pipeline{
+    agent any
+    parameters {
+        choice(name: 'action', choices: 'Create\nRemove', description: 'Create/Remove ApplicationContainer')
+    }
+    stages{
+        stage("docker deploy") {
+            when {
+				expression { params.action == 'Create' }
+			}
+	        steps {
+               sh 'docker run --name springbootContainer -p 8888:8080 -d naresh240/hellospringboot:${ImageTag}'
+           }
+        }
+        stage("stop & remove container") {
+            when {
+				expression { params.action == 'Remove' }
+			}
+	        steps {
+            sh '''
+                docker stop springbootContainer
+                docker rm springbootContainer
+            '''
+           }            
+        }
+    }
+}
