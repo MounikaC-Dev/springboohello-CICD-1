@@ -8,11 +8,11 @@
       state: present
   - name: Install docker
     pip:
-      name: docker-py
+      name: python-docker
       state: present
   - name: Ensure docker deamon is running
     service:
-      name: docker-py
+      name: docker
       state: started
   - name: deploy applicaiton as docker container
     docker_container:
