@@ -15,17 +15,17 @@
       name: docker
       state: started
     become: true
-#   - name: deploy applicaiton as docker container
-#     docker_container:
-#       name: springbootapplication
-#       image: naresh240/hellospringboot:{{ ImageTag }}
-#       state: started
-#       ports:
-#        - "8888:8080"
-#     tags: create
-#   - name: stop container
-#     docker_container:
-#       name: springbootapplication
-#       image: naresh240/hellospringboot:{{ ImageTag }}
-#       state: absent
-#     tags: remove
+  - name: deploy applicaiton as docker container
+    docker_container:
+      name: springbootapplication
+      image: naresh240/hellospringboot:{{ ImageTag }}
+      state: started
+      ports:
+       - "8888:8080"
+    tags: create
+  - name: stop container
+    docker_container:
+      name: springbootapplication
+      image: naresh240/hellospringboot:{{ ImageTag }}
+      state: absent
+    tags: remove
