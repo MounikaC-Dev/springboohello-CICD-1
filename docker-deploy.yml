@@ -1,5 +1,6 @@
 ---
 - hosts: dockerinstance
+  remote_user: root
   tasks:
   - name: Install pip
     yum:
