@@ -11,11 +11,10 @@
   - name: Install docker
     pip:
       name: docker
-      state: present
-  - name: Ensure docker deamon is running
-    service:
-      name: docker
-      state: started
+#   - name: Ensure docker deamon is running
+#     service:
+#       name: docker
+#       state: started
   - name: deploy applicaiton as docker container
     docker_container:
       name: springbootapplication
