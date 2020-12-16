@@ -1,9 +1,10 @@
 ---
 - hosts: dockerinstance
+  become: true
   tasks:
   - name: Install pip
     yum:
-      name: python3-pip
+      name: python-pip
       state: present
   - name: Install docker
     pip:
