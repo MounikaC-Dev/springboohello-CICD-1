@@ -1,6 +1,7 @@
 ---
 - hosts: dockerinstance
-  remote_user: root
+  remote_user: jenkins
+  become: true
   tasks:
   - name: Install pip
     yum:
