@@ -1,6 +1,12 @@
 ---
 - hosts: dockerinstance
+  remote_user: root
   tasks:
+  - name: Install pip
+    command: yum install python3-pip -y
+  - name: Install docker
+    command: pip3 install docker
+    become: true
   - name: deploy applicaiton as docker container
     docker_container:
       name: springbootapplication
