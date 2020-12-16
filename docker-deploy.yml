@@ -1,11 +1,10 @@
 ---
 - hosts: dockerinstance
-  remote_user: root
   become: yes
   tasks:
   - name: install docker
-    yum: 
-      name: docker
+    package:
+      name: docker-ce
       state: present
   - name: start docker service
     service:
