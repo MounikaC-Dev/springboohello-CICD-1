@@ -7,12 +7,12 @@
       name: python-pip
       state: present
   - name: Install docker
-    yum:
-      name: docker
+    pip:
+      name: docker-py
       state: present
   - name: Ensure docker deamon is running
     service:
-      name: docker
+      name: docker-py
       state: started
   - name: deploy applicaiton as docker container
     docker_container:
