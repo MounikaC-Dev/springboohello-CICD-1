@@ -9,12 +9,13 @@
       name: python-pip
       state: present
   - name: Install docker
-    pip:
+    yum:
       name: docker
-#   - name: Ensure docker deamon is running
-#     service:
-#       name: docker
-#       state: started
+      state: latest
+  - name: Ensure docker deamon is running
+    service:
+      name: docker
+      state: started
   - name: deploy applicaiton as docker container
     docker_container:
       name: springbootapplication
