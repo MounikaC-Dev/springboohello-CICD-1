@@ -1,15 +1,20 @@
 ---
 - hosts: dockerinstance
-  become: yes
+  remote_user: root
   tasks:
-  - name: install docker
-    package:
-      name: docker-ce
+  - name: Install pip
+    yum:
+      name: python-pip
       state: present
-  - name: start docker service
+  - name: Install docker
+    yum:
+      name: docker
+      state: present
+  - name: Ensure docker deamon is running
     service:
       name: docker
       state: started
+
   - name: deploy applicaiton as docker container
     docker_container:
       name: springbootapplication
