@@ -1,6 +1,6 @@
 ---
 - hosts: dockerinstance
-  remote_user: jenkins
+  remote_user: ec2-user
   become: yes
   become_method: sudo
   tasks:
@@ -13,7 +13,7 @@
     - name: copying file to remote
       copy:
         src: ./docker
-        dest: /home/jenkins/docker
+        dest: /home/ec2-user/docker
   - name: deploy applicaiton as docker container
     docker_container:
       name: springbootapplication
