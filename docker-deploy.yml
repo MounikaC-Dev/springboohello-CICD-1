@@ -1,6 +1,5 @@
 ---
 - hosts: dockerinstance
-  become: true
   tasks:
   - name: Install pip
     yum:
@@ -9,10 +8,11 @@
   - name: Install docker
     pip:
       name: docker
-  - name: start docker service
+  - name: Ensure docker deamon is running
     service:
       name: docker
-      status: started 
+      state: started
+    become: true
   - name: deploy applicaiton as docker container
     docker_container:
       name: springbootapplication
