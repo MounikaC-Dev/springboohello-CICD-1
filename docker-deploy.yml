@@ -1,6 +1,5 @@
 ---
 - hosts: dockerinstance
-  remote_user: root
   become: true
   tasks:
   - name: Install pip
