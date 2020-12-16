@@ -1,9 +1,9 @@
 ---
 - hosts: dockerinstance
   remote_user: root
-  tasks:
-  - set_fact:
-      ansible_python_interpreter=/usr/bin/python
+  vars:
+    ansible_python_interpreter=/usr/bin/python
+  tasks:  
   - name: Install pip
     yum:
       name: python-pip
