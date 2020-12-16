@@ -9,6 +9,10 @@
   - name: Install docker
     pip:
       name: docker
+  - name: start docker service
+    service:
+      name: docker
+      status: started 
   - name: deploy applicaiton as docker container
     docker_container:
       name: springbootapplication
