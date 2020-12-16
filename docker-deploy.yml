@@ -4,11 +4,11 @@
   tasks:
   - name: Install pip
     yum:
-      name: python-pip
+      name: python3-pip
       state: present
   - name: Install docker
-    pip:
-      name: python-docker
+    pip3:
+      name: docker
       state: present
   - name: Ensure docker deamon is running
     service:
