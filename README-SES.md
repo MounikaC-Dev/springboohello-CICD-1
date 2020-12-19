@@ -1,5 +1,7 @@
 # Pre-Requisites:
+    - Install GIT and Maven
     - Install Jenkins
+    - Configure GIT and Maven with Jenkins
     - Create SMTP Credentials in SES
     - Verify Emails Address in SES
 # Install Java
