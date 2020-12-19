@@ -32,3 +32,5 @@
   ![image](https://user-images.githubusercontent.com/58024415/102684393-1a14c700-41fe-11eb-9176-d60dae64e2ed.png)
 
   Go and Check whether you get mail or not
+# Note:
+  If we provide other Email ID's which not varified with in SES, jenkins build will fail
