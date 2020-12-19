@@ -38,4 +38,3 @@
 # Note:
   If we provide other Email ID's which not varified with in SES, jenkins build will fail
   
-
